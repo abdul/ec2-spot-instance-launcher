@@ -1,0 +1,18 @@
+# RENAME THIS TO NOT .defaults
+[IAM]
+access=YOUR_AWS_ACCESS_KEY
+secret=YOUR_AWS_SECRET_KEY
+
+[EC2]
+# You will need to get the appropriate EBS-backed (64-bit) AMI ID for your region from http://aws.amazon.com/amazon-linux-ami/
+ami=ami-bd990e87
+key_pair=YOUR_AWS_KEYPAIR_NAME
+security_group=quick-start-1
+max_bid=0.020
+type=t1.micro
+region=ap-southeast-2
+tag=spot-ec2-proxifier
+
+[Proxy]
+bind_port=1080
+key_file=key.ppk
