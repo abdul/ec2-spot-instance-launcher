@@ -25,6 +25,19 @@ These are some important parameters:
 - `bind_port` Which port to bind locally for the SSH tunnel
 - `key_file` Puttygen'd private key file that plink will use to connect
 
+Some thoughts
+--------------
+I suggest using *t1.micro* instances as tunneling this way does not really generate any CPU load and I cannot find 
+documented evidence that higher tiers brings any benefit.
+
+Your IAM user needs to have access to a number of EC2 API calls, I believe they are:
+* DescribeInstances
+* DescribeSpotPriceHistoryRequest
+* DescribeSpotInstanceRequests
+* RequestSpotInstances
+
+The script is written in a fairly platform agnostic way but it's only been tested on Windows so YMMV.
+
 Expected behavior
 -------------
 First connect  should go something like:
