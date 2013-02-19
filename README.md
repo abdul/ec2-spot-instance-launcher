@@ -68,12 +68,6 @@ Running: plink -N -D 1080 -i key.ppk ec2-user@54.252.5.153
 Once connection is established, use Ctrl-C to kill the tunnel
 Using username "ec2-user".</pre>
 
-If you get the following output (it never connects), it means your instance is dead, you need to de-tag it in AWS Console (sorry D:) and re-run the script:
-
-<pre>python main.py
-Instance exists already, we will not be provisioning another one
-Waiting for server to come up ... IP not assigned yet ... IP not assigned yet ...</pre>
-
 Terminating (and detagging) the instance:
 <pre>python main.py stop
 Terminating i-0a1b1930 ... done.
