@@ -4,8 +4,6 @@ This is a Python script that brings up a spot EC2 instance (of a specified type,
 
 My own personal use for this is using the newly added Sydney EC2 facility as a poor man's pay-as-you-go 'lowerping' service.
 
-**Note:**  It will not tear down the instances for you or handle the instance being terminated, that is your responsibility. However it will re-use the tagged instance the next runtime if it's still alive.
-
 Prerequisites
 ---------
 * Python 2.6 (ish)
@@ -75,3 +73,8 @@ If you get the following output (it never connects), it means your instance is d
 <pre>python main.py
 Instance exists already, we will not be provisioning another one
 Waiting for server to come up ... IP not assigned yet ... IP not assigned yet ...</pre>
+
+Terminating (and detagging) the instance:
+<pre>python main.py stop
+Terminating i-0a1b1930 ... done.
+</pre>
