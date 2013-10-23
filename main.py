@@ -97,7 +97,7 @@ def main():
         inst = get_existing_instance(client)
         user_data = read_user_data_from_local_config()
         if action == 'start':
-                if inst is None:
+                if inst is None or inst.state == 'terminated':
                         spot_price = get_spot_price(client)
                         print 'Spot price is ' + str(spot_price) + ' ...',
                         if spot_price > float(config.get('EC2', 'max_bid')):
