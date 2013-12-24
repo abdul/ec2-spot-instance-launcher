@@ -23,17 +23,17 @@ def create_client():
         return None
 
 def get_existing_instance(client):
-        instances = client.get_all_instances(filters = { 'tag-value': config.get('EC2', 'tag') })
+        instances = client.get_all_instances(filters = { 'tag:Name': config.get('EC2', 'tag') })
         if len(instances) > 0:
                 return instances[0].instances[0]
         else:
                 return None
 def list_all_existing_instances(client):
-        reservations = client.get_all_instances(filters = { 'tag-value': config.get('EC2', 'tag') })
+        reservations = client.get_all_instances(filters = { 'tag:Name': config.get('EC2', 'tag') })
         if len(reservations) > 0:
                 r_instances = [inst for resv in reservations for inst in resv.instances]
                 for inst in r_instances:
-                        print "Instance Id: %s" % inst.id
+                        print "Instance Id: %s (%s)" % (inst.id, inst.state)
 
 
 def get_spot_price(client):
